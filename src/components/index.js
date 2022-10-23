@@ -9,6 +9,8 @@ import RelatedSongs from './RelatedSongs';
 import MusicPlayer from './MusicPlayer';
 import Loader from './Loader';
 import Error from './Error';
+import BackBtn from './BackBtn';
+import Logo from './Logo';
 
 export {
   TopPlay,
@@ -22,4 +24,6 @@ export {
   MusicPlayer,
   Loader,
   Error,
+  BackBtn,
+  Logo
 };

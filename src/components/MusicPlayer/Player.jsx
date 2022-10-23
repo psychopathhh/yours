@@ -19,16 +19,20 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
   useEffect(() => {
     ref.current.currentTime = seekTime;
   }, [seekTime]);
+  const isValid = activeSong.hub.hasOwnProperty('actions')
 
   return (
-    <audio
-      src={activeSong?.hub?.actions[1]?.uri}
-      ref={ref}
-      loop={repeat}
-      onEnded={onEnded}
-      onTimeUpdate={onTimeUpdate}
-      onLoadedData={onLoadedData}
-    />
+    <>
+      {isValid && <audio
+        src={activeSong?.hub?.actions[1]?.uri}
+        ref={ref}
+        loop={repeat}
+        onEnded={onEnded}
+        onTimeUpdate={onTimeUpdate}
+        onLoadedData={onLoadedData}
+      />}
+    </>
+
   );
 };
 

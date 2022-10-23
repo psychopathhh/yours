@@ -7,7 +7,7 @@ const initialState = {
   isPlaying: false,
   activeSong: {},
   genreListId: '',
-};
+}
 
 const playerSlice = createSlice({
   name: 'player',
@@ -24,30 +24,38 @@ const playerSlice = createSlice({
         state.currentSongs = action.payload.data;
       }
 
-      state.currentIndex = action.payload.i;
+      state.currentIndex = action.payload.i
       state.isActive = true;
     },
 
     nextSong: (state, action) => {
-      if (state.currentSongs[action.payload]?.track) {
-        state.activeSong = state.currentSongs[action.payload]?.track;
-      } else {
-        state.activeSong = state.currentSongs[action.payload];
-      }
-
       state.currentIndex = action.payload;
       state.isActive = true;
+      if (state.currentSongs[action.payload]?.track && state.currentSongs[action.payload]?.track.hasOwnProperty('images') && state.currentSongs[action.payload]?.track.hub.hasOwnProperty('actions')) {
+        state.activeSong = state.currentSongs[action.payload]?.track;
+      } else if (state.currentSongs[action.payload]?.hub.hasOwnProperty('actions') && state.currentSongs[action.payload]?.hasOwnProperty('images')) {
+        state.activeSong = state.currentSongs[action.payload];
+      } else {
+        state.activeSong = state.currentSongs[action.payload + 1];
+
+        state.currentIndex = action.payload + 1;
+      }
+
     },
 
     prevSong: (state, action) => {
-      if (state.currentSongs[action.payload]?.track) {
-        state.activeSong = state.currentSongs[action.payload]?.track;
-      } else {
-        state.activeSong = state.currentSongs[action.payload];
-      }
-
       state.currentIndex = action.payload;
       state.isActive = true;
+      if (state.currentSongs[action.payload]?.track && state.currentSongs[action.payload]?.track.hasOwnProperty('images') && state.currentSongs[action.payload]?.track.hub.hasOwnProperty('actions')) {
+        state.activeSong = state.currentSongs[action.payload]?.track;
+      } else if (state.currentSongs[action.payload]?.hub.hasOwnProperty('actions') && state.currentSongs[action.payload]?.hasOwnProperty('images')) {
+        state.activeSong = state.currentSongs[action.payload];
+      } else {
+        state.activeSong = state.currentSongs[action.payload - 1];
+
+        state.currentIndex = action.payload - 1;
+      }
+
     },
 
     playPause: (state, action) => {
@@ -56,10 +64,12 @@ const playerSlice = createSlice({
 
     selectGenreListId: (state, action) => {
       state.genreListId = action.payload;
-    },
+    }
   },
 });
 
 export const { setActiveSong, nextSong, prevSong, playPause, selectGenreListId } = playerSlice.actions;
 
 export default playerSlice.reducer;
+
+
