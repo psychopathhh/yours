@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { BackBtn, DetailsHeader, Error, Loader, RelatedSongs } from "../components";
+import { BackBtn, DetailsHeader, Error, Loader, RelatedSongs, Translator } from "../components";
 import { setActiveSong, playPause } from "../redux/features/playerSlice";
 import { useGetSongDetailsQuery, useGetSongsRelatedQuery } from "../redux/services/shazamCore";
 
@@ -29,18 +29,25 @@ const SongDetails = () => {
             <BackBtn url='' />
             <div className="flex flex-col ">
                 <DetailsHeader artistId="" songData={songData} />
-                <div className="mb-10">
-                    <h2 className="text-white text-3xl font-bold">
+                <div className="mb-10 flex sm:flex-row flex-col gap-24">
+                    <div className="flex-1"><h2 className="text-white text-3xl font-bold">
                         Lyrics:
                     </h2>
-                    <div className="mt-5">
-                        {songData?.sections[1].type === 'LYRICS' ?
-                            songData?.sections[1].text.map((line, i) => (
-                                <p key={i} className="text-gray-400 text-base my-1">{line}</p>
-                            )
-                            ) : <p className="text-gray-400 text-base my-1">Sorry, no lyrics found!</p>
+                        <div className="mt-5">
+                            {songData?.sections[1].type === 'LYRICS' ?
+                                songData?.sections[1].text.map((line, i) => (
+                                    <p key={i} className="text-gray-400 text-base my-1">{line}</p>
+                                )
+                                ) : <p className="text-gray-400 text-base my-1">Sorry, no lyrics found!</p>
 
-                        }
+                            }
+                        </div>
+                    </div>
+                    <div className="flex flex-col flex-1">
+                        <h2 className="text-white text-3xl font-bold mb-5">
+                            <span className="text-indigo-500">Your</span> Translator:
+                        </h2>
+                        <Translator />
                     </div>
                 </div>
 

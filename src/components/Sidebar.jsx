@@ -2,7 +2,6 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RiCloseLine } from 'react-icons/ri'
 
-import { logo } from "../assets";
 import { links } from "../assets/constants";
 import { HiOutlineMenu } from "react-icons/hi";
 import Logo from "./Logo";
@@ -27,7 +26,6 @@ const Sidebar = () => {
   return (
     <>
       <div className={`py-10 px-4 w-[240px] flex-col md:flex hidden bg-[#1d2d36]`}>
-        {/* <img src={logo} alt='logo' className="md:w-full h-20 object-contain"></img> */}
         <Logo />
         <NavLinks />
       </div>

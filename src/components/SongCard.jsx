@@ -8,13 +8,13 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
   const dispatch = useDispatch()
 
   const handlePauseClick = () => {
-    dispatch(playPause(false))
+    dispatch(playPause(true))
   }
   const handlePlayClick = () => {
     dispatch(setActiveSong({ song, data, i }))
-    dispatch(playPause(true))
+    dispatch(playPause(false))
   }
-  console.log(song)
+
   return (
     <div className='flex flex-col w-[250px] p-4 bg-opacity-80 bg-white/5 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer shadow-xl'>
       <div className='relative w-full h-56 group'>

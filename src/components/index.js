@@ -11,6 +11,7 @@ import Loader from './Loader';
 import Error from './Error';
 import BackBtn from './BackBtn';
 import Logo from './Logo';
+import Translator from './Translator';
 
 export {
   TopPlay,
@@ -25,5 +26,6 @@ export {
   Loader,
   Error,
   BackBtn,
-  Logo
+  Logo,
+  Translator
 };
