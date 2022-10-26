@@ -80,7 +80,7 @@ const Translator = () => {
             },
             headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': '6733cb47cfmsh487216fa5822579p10fd87jsn4e8e5b771451',
+                'X-RapidAPI-Key': 'dc65826120msh431d5b80cb769c0p187c5bjsn2e5dc568e137',
                 'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com'
             },
             data: `[{"Text":"${inputText}"}]`
