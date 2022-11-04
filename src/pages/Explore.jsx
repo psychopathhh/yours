@@ -24,7 +24,7 @@ const Explore = () => {
                                     <div onClick={() => {
                                         dispatch(selectGenreListId(genre.value))
                                     }} className={`cursor-pointer rounded sm:w-[250px] sm:h-[250px] w-[220px] h-[220px] ${color} box-border py-6 flex flex-col justify-between items-center hover:brightness-75 transition-colors duration-1000`}>
-                                        <div className={`w-[70%] h-[80%] bg-cover bg-center`} style={{ backgroundImage: `url(../../../src/assets/${genreImg})` }} />
+                                        <div className={`w-[70%] h-[80%] bg-cover bg-center`} style={{ backgroundImage: `url(${genreImg})` }} />
                                         <p>
                                             {genre.title}
                                         </p>
