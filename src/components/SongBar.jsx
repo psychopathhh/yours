@@ -15,17 +15,32 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
       <div className="flex-1 flex flex-col justify-center mx-3">
         {!artistId ? (
           <Link to={`/songs/${song.key}`}>
-            <p className="text-xl font-bold text-white">
-              {song?.title}
+            <p>
+              <span className="text-xl font-bold text-white hover:text-gray-400 transition-colors">
+                {song?.title}
+              </span>
             </p>
           </Link>
         ) : (
-          <p className="text-xl font-bold text-white">
-            {song?.attributes?.name}
+          <p>
+            <span className="text-xl font-bold text-white">
+              {song?.attributes?.name}
+            </span>
           </p>
         )}
-        <p className="text-base text-gray-300 mt-1">
-          {artistId ? song?.attributes?.albumName : song?.subtitle}
+        {artistId ?
+          (<span className="text-base text-gray-300 mt-1">
+            {song?.attributes?.albumName}
+          </span>) :
+          (<Link to={`/artists/${song?.artists[0]?.adamid}`} >
+            <p className="text-base text-gray-300 mt-1 hover:text-gray-400 transition-colors">
+              {song?.subtitle}
+            </p>
+          </Link>)
+        }
+        <p>
+
+
         </p>
       </div>
     </div>

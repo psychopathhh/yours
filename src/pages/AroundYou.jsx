@@ -13,6 +13,7 @@ const CountryTracks = () => {
     const { data, isFetching, error } = useGetSongsByCountryQuery(country)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         axios.get('https://geo.ipify.org/api/v2/country?apiKey=at_Km2ffrJ4gm4W1rO5Pc5bZAve4A8Kz')
             .then(res => setCountry(res?.data?.location?.country))
             .catch(err => console.log(err))
@@ -25,7 +26,7 @@ const CountryTracks = () => {
     return (
         <div className='flex flex-col'>
             <h2 className='mt-4 mb-10 font-bold text-3xl text-white text-left'>
-                Around You <span className='font-black'>{country}</span>
+                Популярно в <span className='font-black'>{country}</span>
             </h2>
             <div className='flex justify-center flex-wrap gap-8 mb-[180px]'>
                 {data?.map((song, i) => (

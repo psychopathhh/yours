@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { BackBtn, DetailsHeader, Error, Loader, RelatedSongs } from "../components";
@@ -6,6 +7,9 @@ import { useGetArtistDetailsQuery } from "../redux/services/shazamCore";
 
 
 const ArtistDetails = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const { id: artistId } = useParams()
   const { activeSong, isPlaying } = useSelector(state => state.player)
   const { data: artistData, isFetching: isFetchingArtistDetails, error } = useGetArtistDetailsQuery({ artistId })

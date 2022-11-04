@@ -120,7 +120,7 @@ const Translator = () => {
 
             <div className='border-t-[1px] border-b-[1px] border-[#7d7d7d] py-2'>
                 <h1 className='text-[#adadad] text-lg text-center w-full'>
-                    Language
+                    Язык
                 </h1>
                 <div className='flex gap-10 justify-center items-center'>
                     <LanguageSelect
@@ -172,16 +172,16 @@ const Translator = () => {
             </div>
             <FormControl variant="standard">
                 <InputLabel shrink htmlFor="bootstrap-input" placeholder='sfds' sx={{ color: '#6350aa', fontSize: 20 }}>
-                    Type Something To Translate
+                    Напишите что-нибудь
                 </InputLabel>
                 <BootstrapInput value={inputText} id="bootstrap-input" onChange={e => setInputText(e.target.value)} />
             </FormControl>
-            <Button onClick={translateText} variant="outlined" color='secondary' startIcon={<MdOutlineTranslate />} sx={{ margin: '15px auto' }}>Translate</Button>
+            <Button onClick={translateText} variant="outlined" color='secondary' startIcon={<MdOutlineTranslate />} sx={{ margin: '15px auto' }}>Перевести</Button>
 
             {resultText &&
                 <>
 
-                    <h1 className='text-[#7253e3] text-lg' >Translation</h1>
+                    <h1 className='text-[#7253e3] text-lg' >Перевод</h1>
 
                     <div className='border-[#7253e3] border-l-[3px] pl-2 text-[#a5a5a5] text-lg rounded'>{resultText}</div>
                 </>

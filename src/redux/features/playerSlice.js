@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   currentSongs: [],
   currentIndex: 0,
-  isActive: true,
-  isPlaying: true,
+  isActive: false,
+  isPlaying: false,
   activeSong: {},
   genreListId: '',
 }
@@ -30,7 +30,6 @@ const playerSlice = createSlice({
 
     nextSong: (state, action) => {
       state.currentIndex = action.payload;
-      state.isActive = true;
       if (state.currentSongs[action.payload]?.track && state.currentSongs[action.payload]?.track.hasOwnProperty('images') && state.currentSongs[action.payload]?.track.hub.hasOwnProperty('actions')) {
         state.activeSong = state.currentSongs[action.payload]?.track;
       } else if (state.currentSongs[action.payload]?.hub.hasOwnProperty('actions') && state.currentSongs[action.payload]?.hasOwnProperty('images')) {
@@ -40,12 +39,12 @@ const playerSlice = createSlice({
 
         state.currentIndex = action.payload + 1;
       }
+      state.isActive = true;
 
     },
 
     prevSong: (state, action) => {
       state.currentIndex = action.payload;
-      state.isActive = true;
       if (state.currentSongs[action.payload]?.track && state.currentSongs[action.payload]?.track.hasOwnProperty('images') && state.currentSongs[action.payload]?.track.hub.hasOwnProperty('actions')) {
         state.activeSong = state.currentSongs[action.payload]?.track;
       } else if (state.currentSongs[action.payload]?.hub.hasOwnProperty('actions') && state.currentSongs[action.payload]?.hasOwnProperty('images')) {
@@ -55,6 +54,7 @@ const playerSlice = createSlice({
 
         state.currentIndex = action.payload - 1;
       }
+      state.isActive = true;
 
     },
 

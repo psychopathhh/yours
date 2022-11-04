@@ -21,12 +21,12 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
       <img className="w-20 h-20 rounded-lg" src={song?.images?.coverart} alt={song.title} />
       <div className="flex-1 flex flex-col jutify-center mx-3">
         <Link to={`/songs/${song?.key}`} >
-          <p className="text-xl font-bold text-white">
+          <p className="sm:text-xl text-lg font-bold text-white hover:text-gray-400 transition-colors">
             {song?.title}
           </p>
         </Link>
         <Link to={`/artists/${song?.artists[0]?.adamid}`} >
-          <p className="text-base text-gray-300 mt-1">
+          <p className="sm:text-base text-sm text-gray-300 mt-1 hover:text-gray-400 transition-colors">
             {song?.subtitle}
           </p>
         </Link>
@@ -56,11 +56,11 @@ const TopPlay = () => {
 
 
   const handlePauseClick = () => {
-    dispatch(playPause(true))
+    dispatch(playPause(false))
   }
   const handlePlayClick = (song, i) => {
     dispatch(setActiveSong({ song, data, i }))
-    dispatch(playPause(false))
+    dispatch(playPause(true))
   }
 
   return (
@@ -68,17 +68,18 @@ const TopPlay = () => {
       <div className="w-full flex flex-col">
         <div className="flex justify-between items-center">
           <h2 className="text-white font-bold text-2xl">
-            Top Charts
+            Мировые новинки
           </h2>
           <Link to="/top-charts">
             <p className="text-gray-300 text-base cursor-pointer">
-              See more
+              Показать ещё
             </p>
           </Link>
         </div>
         <div className="mt-4 flex flex-col gap-1">
           {topPlays?.map((song, i) => (
-            <TopChartCard
+            (song.hasOwnProperty('images') && song.hub.hasOwnProperty('actions')) &&
+            (<TopChartCard
               key={song.key}
               song={song}
               i={i}
@@ -86,7 +87,7 @@ const TopPlay = () => {
               activeSong={activeSong}
               handlePauseClick={handlePauseClick}
               handlePlayClick={() => handlePlayClick(song, i)}
-            />
+            />)
           ))}
         </div>
       </div>
@@ -94,11 +95,11 @@ const TopPlay = () => {
       <div className="w-full flex flex-col mt-8">
         <div className="flex justify-between items-center">
           <h2 className="text-white font-bold text-2xl">
-            Top Artists
+            Популярные исполнители
           </h2>
           <Link to="/top-artists">
             <p className="text-gray-300 text-base cursor-pointer">
-              See more
+              Показать ещё
             </p>
           </Link>
         </div>

@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 const ArtistCard = ({ track }) => {
   const navigate = useNavigate()
   return (
-    <div className="flex flex-col 2-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
+    <div className="flex flex-col w-[260px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
       onClick={() => navigate(`/artists/${track?.artists[0].adamid}`)}
     >
-      <img src={track?.images?.coverart} alt="artist"
+      <img src={track?.images?.background} alt="artist"
         className="w-full h-56 rounded-lg"
       />
       <p className="mt-4 font-semibold text-lg text-white truncate">{track?.subtitle}</p>

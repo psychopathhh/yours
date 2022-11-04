@@ -8,6 +8,7 @@ const Searchbar = () => {
   const handleSubmit = e => {
     e.preventDefault()
     navigate(`/search/${searchTerm}`)
+    setSearchTerm('')
   }
 
   return (
@@ -17,10 +18,11 @@ const Searchbar = () => {
       </label>
       <div className="flex justify-start items-center bg-[#293942] rounded-[20px] mx-auto mt-[20px] sm::w-[90%] w-[100%] xl:w-[70%]">
         <input
+          autoFocus
           name="search-field"
           autoComplete="off"
           id="search-field"
-          placeholder="Search artists or songs..."
+          placeholder="Трек или исполнитель..."
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}

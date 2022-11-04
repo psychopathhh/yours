@@ -17,11 +17,12 @@ const MusicPlayer = () => {
   const [volume, setVolume] = useState(0.3);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
+  const [open, setOpen] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (currentSongs.length) dispatch(playPause(true));
-  }, [currentIndex]);
+    if (currentSongs.length) dispatch(playPause(false))
+  }, [dispatch]);
 
   const handlePlayPause = () => {
     if (!isActive) return;
@@ -34,7 +35,7 @@ const MusicPlayer = () => {
   };
 
   const handleNextSong = () => {
-    dispatch(playPause(false));
+    dispatch(playPause(true));
 
     if (!shuffle) {
       dispatch(nextSong((currentIndex + 1) % currentSongs.length));
@@ -54,7 +55,7 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="relative sm:px-8 px-4 w-full flex items-center justify-between">
+    <div className="relative sm:px-8 px-4 w-full flex items-center justify-between" onClick={() => open && window.innerWidth < 640 && setOpen(true)}>
       <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} />
       <div className="flex sm:flex-1 flex-col items-center justify-center">
         <Controls

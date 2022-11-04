@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { genres } from '../assets/constants'
@@ -6,6 +7,9 @@ import { BackBtn, Error, Loader, SongCard } from '../components'
 import { useGetSongsByGenreQuery } from '../redux/services/shazamCore'
 
 const GenreSongs = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     let { genreId } = useParams()
     genreId = genreId.slice(1, genreId.length)
 

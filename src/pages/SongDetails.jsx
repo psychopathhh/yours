@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { BackBtn, DetailsHeader, Error, Loader, RelatedSongs, Translator } from "../components";
@@ -11,6 +12,10 @@ const SongDetails = () => {
     const { activeSong, isPlaying } = useSelector(state => state.player)
     const { data: songData, isFetching: isfetchingSongDetails } = useGetSongDetailsQuery({ songid })
     const { data, isFetching: isFetchingRelatedSongs, error } = useGetSongsRelatedQuery({ songid })
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     const handlePauseClick = () => {
@@ -31,7 +36,7 @@ const SongDetails = () => {
                 <DetailsHeader artistId="" songData={songData} />
                 <div className="mb-10 flex sm:flex-row flex-col gap-24">
                     <div className="flex-1"><h2 className="text-white text-3xl font-bold">
-                        Lyrics:
+                        Текст песни:
                     </h2>
                         <div className="mt-5">
                             {songData?.sections[1].type === 'LYRICS' ?

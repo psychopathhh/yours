@@ -8,11 +8,11 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
   const dispatch = useDispatch()
 
   const handlePauseClick = () => {
-    dispatch(playPause(true))
+    dispatch(playPause(false))
   }
   const handlePlayClick = () => {
     dispatch(setActiveSong({ song, data, i }))
-    dispatch(playPause(false))
+    dispatch(playPause(true))
   }
 
   return (
@@ -30,12 +30,12 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
         <img src={song.images?.coverart} alt="song_img" />
       </div>
       <div className='mt-4 flex flex-col'>
-        <p className='font-semibold text-lg text-white truncate'>
+        <p className='font-semibold text-lg text-white truncate hover:text-gray-500'>
           <Link to={`/songs/${song?.key}`}>
             {song.title}
           </Link>
         </p>
-        <p className='text-sm truncate text-gray-300 mt-1'>
+        <p className='text-sm truncate text-gray-300 mt-1 hover:text-gray-500'>
           <Link to={song.artists ? `/artists/${song?.artists[0]?.adamid}` : '/top-artists'}>
             {song.subtitle}
           </Link>

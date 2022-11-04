@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
 import { Error, Loader, ArtistCard } from '../components'
 import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 
 const TopArtists = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const { data, isFetching, error } = useGetTopChartsQuery()
 
     if (isFetching) return <Loader title="Loading top artists" />
@@ -10,9 +14,9 @@ const TopArtists = () => {
     return (
         <div className='flex flex-col'>
             <h2 className='mt-4 mb-10 font-bold text-3xl text-white text-left'>
-                Top Artists
+                Популярные исполнители
             </h2>
-            <div className='flex justify-center flex-wrap sm:justify-start gap-8 mb-[180px]'>
+            <div className='flex justify-center flex-wrap gap-8 mb-[180px]'>
                 {data?.map(track => (
                     <ArtistCard key={track.key} track={track} />
                 ))}

@@ -23,7 +23,7 @@ const App = () => {
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
               <Route path="/explore" element={<Explore />} />
-              <Route path="*" element={<Navigate to="/explore" replace />}
+              <Route path="*" element={<Navigate to="/explore" />}
               />
             </Routes>
 
@@ -34,7 +34,7 @@ const App = () => {
       </div>
 
       {activeSong?.title && (
-        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-[#293942] rounded-t-3xl z-10">
+        <div className="absolute h-24 sm:h-28 bottom-[-10px] sm:bottom-0 left-0 right-0 flex animate-slideup bg-[#293942] rounded-t-3xl z-10">
           <MusicPlayer />
         </div>
       )}

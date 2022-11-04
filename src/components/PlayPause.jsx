@@ -5,13 +5,13 @@ const PlayPause = ({ isPlaying, activeSong, song, handlePause, handlePlay }) => 
     (
       <FaPauseCircle
         size={35}
-        className='text-gray-300'
+        className='hover:text-white text-gray-400 transition-colors'
         onClick={handlePause}
       />
     ) : (
       <FaPlayCircle
         size={35}
-        className='text-gray-300'
+        className='hover:text-white text-gray-400 transition-colors'
         onClick={handlePlay}
       />
     )

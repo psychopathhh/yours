@@ -6,13 +6,15 @@ const RelatedSongs = ({
   activeSong,
   handlePauseClick,
   handlePlayClick,
-  artistId,
-  songs
+  artistId
 }) => {
   let realIndex = 0
   return (
     <div className="flex flex-col mb-[180px]">
-      <h1 className="font-bold text-3xl text-white">Related Songs:</h1>
+      {artistId ?
+        <h1 className="font-bold text-3xl text-white">Песни:</h1> :
+
+        <h1 className="font-bold text-3xl text-white">Вам также понравится:</h1>}
       <div className="my-6 w-full flex flex-col">
         {data?.map((song, i) => {
           if ((song.hasOwnProperty('images') && song.hub.hasOwnProperty('actions')) || artistId) {

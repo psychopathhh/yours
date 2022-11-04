@@ -7,9 +7,9 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
     <BsArrowRepeat size={20} color={repeat ? '#7971E9' : 'white'} onClick={() => setRepeat((prev) => !prev)} className="hidden sm:block cursor-pointer" />
     {currentSongs?.length && <MdSkipPrevious size={30} color="#FFF" className="cursor-pointer" onClick={handlePrevSong} />}
     {isPlaying ? (
-      <BsFillPauseFill color="#FFF" onClick={handlePlayPause} className="cursor-pointer sm:w-16 sm:h-16 w-12 h-12 sm:border-none rounded-full  border-[#7971E9] border-2 p-2 box-border" />
+      <BsFillPauseFill color="#FFF" onClick={handlePlayPause} className="cursor-pointer sm:w-16 sm:h-16 w-10 h-10" />
     ) : (
-      <BsFillPlayFill color="#FFF" onClick={handlePlayPause} className="cursor-pointer sm:w-16 sm:h-16 w-12 h-12 sm:border-none rounded-full  border-[#7971E9] border-2 p-2 box-border" />
+      <BsFillPlayFill color="#FFF" onClick={handlePlayPause} className="cursor-pointer sm:w-16 sm:h-16 w-10 h-10" />
     )}
     {currentSongs?.length && <MdSkipNext size={30} color="#FFF" className="cursor-pointer" onClick={handleNextSong} />}
     <BsShuffle size={20} color={shuffle ? '#7971E9' : 'white'} onClick={() => setShuffle((prev) => !prev)} className="hidden sm:block cursor-pointer" />
