@@ -99,7 +99,7 @@ const MusicPlayer = ({ open, setOpen }) => {
 
 
           <div className='z-50 my-20 flex align-center flex-col justify-between'>
-            <div onClick={() => window.innerWidth < 640 && setOpen(false)} className='absolute top-3 left-3 text-white text-5xl font-thin sm:hidden block'>
+            <div onClick={() => window.innerWidth < 640 && setOpen(false)} className='absolute top-6 left-3 text-white text-5xl font-thin sm:hidden block'>
               <RiArrowDownSLine />
             </div>
             <div className='flex flex-col justify-between items-center pt-4 h-[85vh]'>
