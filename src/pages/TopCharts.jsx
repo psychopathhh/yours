@@ -16,7 +16,7 @@ const TopCharts = () => {
     if (error) return <Error />
     return (
         <div className='flex flex-col'>
-            <h2 className='mt-4 mb-10 font-bold text-3xl text-white text-left'>
+            <h2 className='mt-4 mb-10 font-bold text-3xl text-white text-left sm:text-center'>
                 Мировые новинки
             </h2>
             <div className='flex justify-center flex-wrap gap-8 mb-[180px]'>

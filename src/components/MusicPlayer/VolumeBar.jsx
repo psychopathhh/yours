@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsFillVolumeUpFill, BsVolumeDownFill, BsFillVolumeMuteFill } from 'react-icons/bs';
 
-const VolumeBar = ({ value, min, max, onChange, setVolume }) => (
+const VolumeBar = ({ value, min, max, onChange, setVolume, open }) => (
   <div className="hidden sm:flex-1 lg:flex items-center justify-end">
     {value <= 1 && value > 0.5 && <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} />}
     {value <= 0.5 && value > 0 && <BsVolumeDownFill size={25} color="#FFF" onClick={() => setVolume(0)} />}

@@ -12,7 +12,8 @@ module.exports = {
         slideleft: 'slideleft 1s ease-in-out',
         slideright: 'slideright 1s ease-in-out',
         wave: 'wave 1.2s linear infinite',
-        slowfade: 'slowfade 2.2s ease-in-out',
+        slowfade: 'slowfade .8s ease-in-out',
+        scroll: 'scroll 20s linear infinite'
       },
       keyframes: {
         slowfade: {
@@ -40,6 +41,14 @@ module.exports = {
           '50%': { transform: 'scale(1)' },
           '100%': { transform: 'scale(0)' },
         },
+        scroll: {
+          from: {
+            transform: 'translateX(0)'
+          },
+          to: {
+            transform: 'translateX(-100%)'
+          }
+        }
       },
     },
   },

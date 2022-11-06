@@ -33,8 +33,8 @@ const Sidebar = () => {
 
         <Logo />
         {mobileMenuOpen ?
-          <RiCloseLine className="w-6 h-6 text-white mr-2" onClick={() => setMobileMenuOpen(false)} /> :
-          <HiOutlineMenu className="w-6 h-6 text-white mr-2" onClick={() => setMobileMenuOpen(true)} />
+          <RiCloseLine className="w-6 h-6 text-white hover:text-gray-400 mr-2 cursor-pointer" onClick={() => setMobileMenuOpen(false)} /> :
+          <HiOutlineMenu className="w-6 h-6 text-white hover:text-gray-400 mr-2 cursor-pointer" onClick={() => setMobileMenuOpen(true)} />
         }
       </div>
       <div className={`absolute z-20 top-10 h-screen w-full md:hidden smooth-transition p-6 bg-[#1d2d36] ${mobileMenuOpen ? 'left-0' : '-left-full'}`}>

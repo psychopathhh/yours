@@ -17,7 +17,7 @@ const Search = () => {
   return (
     <div className='flex flex-col'>
       <BackBtn url='' />
-      <h2 className='mb-10 font-bold text-3xl text-white text-left'>
+      <h2 className='mb-10 ml-6 font-bold text-3xl text-white text-left'>
         Showing Results For <span className='font-black border-b-4 border-indigo-500'>{searchTerm}</span>
       </h2>
       <div className='flex justify-center flex-wrap sm:justify-center gap-8 mb-[180px]'>

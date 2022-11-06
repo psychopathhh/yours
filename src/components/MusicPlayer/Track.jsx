@@ -1,20 +1,44 @@
 import React from 'react';
+import { BsFillPauseFill, BsFillPlayFill } from 'react-icons/bs';
+import Marquee from "react-fast-marquee";
 
-const Track = ({ isPlaying, isActive, activeSong }) => (
-  <div className="flex items-center sm:flex-1">
-    <div className={`${isPlaying && isActive ? 'animate-[spin_5s_linear_infinite]' : ''} sm:h-16 sm:w-16 h-14 w-14 mr-4 relative`}>
-      <img src={activeSong?.images?.coverart} alt="cover art" className="rounded-full drop-shadow-md" />
-      <div className='sm:h-5 sm:w-5 h-4 w-4 rounded-full bg-[#25343c] absolute sm:top-[34%] sm:left-[35%] top-[36%] left-[36%]'></div>
-    </div>
-    <div className="sm:w-[340px] w-[120px]">
-      <p className="truncate text-white font-bold sm:text-lg text-md">
-        {activeSong?.title ? activeSong?.title : 'No active Song'}
-      </p>
-      <p className="truncate text-gray-300 text-sm">
-        {activeSong?.subtitle ? activeSong?.subtitle : 'No active Song'}
-      </p>
-    </div>
-  </div>
-);
+const Track = ({ isPlaying, isActive, activeSong, open, handlePlayPause }) => {
+
+  return (
+    <div className={`flex items-center sm:flex-1 ${open ? 'flex-col' : 'flex-row'}`}>
+      <div className={`${isPlaying && isActive ? 'sm:animate-[spin_5s_linear_infinite]' : ''} ${open ? 'transition-transform max-w-[310px] max-h-[310px]' : 'sm:h-16 sm:w-16 h-14 w-14 mr-4'} ${open && !isPlaying && 'scale-75 transition-transform'} relative`}>
+        <img src={activeSong?.images?.coverart} alt="cover art" className={`${open ? 'rounded-xl drop-shadow-xl brightness-100 mx-auto' : 'rounded-full '} drop-shadow-md sm:brightness-75 brightness-50`} />
+        {isPlaying && !open && (
+          <BsFillPauseFill color="#FFF" onClick={handlePlayPause} className="cursor-pointer w-10 h-10 sm:hidden absolute top-[14%] left-[16%]" />
+        )}
+        {!isPlaying && !open && (
+          <BsFillPlayFill color="#FFF" onClick={handlePlayPause} className="cursor-pointer w-10 h-10 sm:hidden absolute top-[14%] left-[16%]" />
+        )}
+        <div className='sm:block sm:h-5 sm:w-5 hidden rounded-full bg-[#25343c] absolute top-[34%] left-[36%]'></div>
+      </div>
+      <div className={` ${open ? 'w-[310px] overflow-hidden' : 'w-[120px] sm:w-[320px] 2xl:w-[580px]'} ${open && isPlaying ? 'mt-3' : 'p-3'}`}>
+        {
+          (open && isPlaying) ?
+            (
+              <Marquee className='rounded-lg' speed={30} gradientColor={[255, 255, 255, 0]} gradientWidth={50} >
+                <p className={`text-white font-bold sm:text-lg text-md p-2 ${open ? 'text-center text-xl break-words' : 'truncate'}`}>
+                  {activeSong?.title ? activeSong?.title : 'No active Song'}
+                </p>
+              </Marquee>
+            )
+
+            :
+            (<p className={`text-white truncate font-bold sm:text-lg text-md ${open ? 'text-center text-xl mx-auto w-[80%]' : ''}`}>
+              {activeSong?.title ? activeSong?.title : 'No active Song'}
+            </p>)
+        }
+
+        <p className={`truncate text-gray-300 text-sm ${open && 'text-center  text-base'}`}>
+          {activeSong?.subtitle ? activeSong?.subtitle : 'No active Song'}
+        </p>
+      </div>
+    </div >
+  )
+};
 
 export default Track;

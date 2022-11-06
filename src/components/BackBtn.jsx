@@ -9,7 +9,7 @@ const BackBtn = ({ url }) => {
             url ?
                 navigate(url)
                 : window.history.back()
-        }} className='w-10 h-10 text-white m-[10px]' /></>
+        }} className='w-10 h-10 text-white hover:text-gray-400 m-[10px] cursor-pointer' /></>
     )
 }
 
