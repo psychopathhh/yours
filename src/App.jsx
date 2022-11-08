@@ -16,7 +16,7 @@ const App = () => {
       <div className="flex-1 flex flex-col bg-[#1b262c]">
         <div className="px-6 h-[100vh] overflow-y-scroll hide-scrollbar">
           <Searchbar />
-          <div className='mt-[20px] sm:mb-12'>
+          <div className='mt-[20px] mb-12 sm:mb-0'>
             <Routes>
               <Route path="/genre-songs:genreId" element={<GenreSongs />} />
               <Route path="/top-artists" element={<TopArtists />} />
@@ -37,7 +37,7 @@ const App = () => {
       </div>
 
       {activeSong?.title && (
-        <div className={`absolute ${open ? `overflow-hidden h-[100vh] flex-col animate-slideup` : 'h-24 animate-slowfade'} bg-[#293942] sm:h-32 bottom-[-10px] sm:bottom-0 left-0 right-0 flex z-40 rounded-t-3xl`}>
+        <div className={`absolute ${open ? `overflow-hidden h-[100%] flex-col animate-slideup` : 'h-24 animate-slowfade'} bg-[#293942] sm:h-32 bottom-[-10px] sm:bottom-0 left-0 right-0 flex z-40 rounded-t-3xl`}>
           <MusicPlayer open={open} setOpen={setOpen} />
           <div className={`absolute right-8 top-3 text-white text-[38px] sm:hidden ${open ? 'hidden' : 'block'}`} onClick={() => window.innerWidth < 640 && setOpen(true)}>
             <RiArrowUpSLine />

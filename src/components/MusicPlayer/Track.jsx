@@ -6,8 +6,8 @@ const Track = ({ isPlaying, isActive, activeSong, open, handlePlayPause }) => {
 
   return (
     <div className={`flex items-center sm:flex-1 ${open ? 'flex-col' : 'flex-row'}`}>
-      <div className={`${isPlaying && isActive ? 'sm:animate-[spin_5s_linear_infinite]' : ''} ${open ? 'transition-transform max-w-[310px] max-h-[310px]' : 'sm:h-16 sm:w-16 h-14 w-14 mr-4'} ${open && !isPlaying && 'scale-75 transition-transform'} relative`}>
-        <img src={activeSong?.images?.coverart} alt="cover art" className={`${open ? 'rounded-xl drop-shadow-xl brightness-100 mx-auto' : 'rounded-full '} drop-shadow-md sm:brightness-75 brightness-50`} />
+      <div className={`${isPlaying && isActive ? 'sm:animate-[spin_5s_linear_infinite]' : ''} ${open ? 'transition-transform w-[310px] h-[310px]' : 'sm:h-16 sm:w-16 h-14 w-14 mr-4'} ${open && !isPlaying && 'scale-75 transition-transform'} relative`}>
+        <img style={{ 'backgroundImage': "url('src/assets/no_image.jpg')" }} height='310' width='310' src={activeSong?.images?.coverart} alt="cover art" className={`bg-cover bg-center text-transparent  ${open ? 'rounded-xl drop-shadow-xl brightness-100 mx-auto' : 'rounded-full '} drop-shadow-md sm:brightness-75 brightness-50`} />
         {isPlaying && !open && (
           <BsFillPauseFill color="#FFF" onClick={handlePlayPause} className="cursor-pointer w-10 h-10 sm:hidden absolute top-[14%] left-[16%]" />
         )}

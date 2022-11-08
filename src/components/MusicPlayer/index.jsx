@@ -14,7 +14,7 @@ const MusicPlayer = ({ open, setOpen }) => {
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
   const [appTime, setAppTime] = useState(0);
-  const [volume, setVolume] = useState(0.3);
+  const [volume, setVolume] = useState(1);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const dispatch = useDispatch();
@@ -95,11 +95,11 @@ const MusicPlayer = ({ open, setOpen }) => {
       </div>
       {open &&
         <>
-          <div style={{ 'backgroundImage': `url(${activeSong?.images?.coverart})` }} className='absolute top-0 left-0 z-0 h-[100vh] w-[100vw] bg-no-repeat bg-cover bg-right-bottom blur-3xl rounded-t-3xl brightness-50' />
+          <div style={{ 'backgroundImage': `url(${activeSong?.images?.coverart})` }} className='absolute top-0 left-0 z-0 h-[100%] w-[100%] bg-no-repeat bg-cover bg-right-bottom blur-3xl rounded-t-3xl brightness-50' />
 
 
-          <div className='z-50 my-20 flex align-center flex-col justify-between'>
-            <div onClick={() => window.innerWidth < 640 && setOpen(false)} className='absolute top-9 left-5 text-white text-5xl font-thin sm:hidden block'>
+          <div className={`${open ? 'pb-20 pt-5' : 'my-20'} z-50 flex align-center flex-col justify-between`}>
+            <div onClick={() => window.innerWidth < 640 && setOpen(false)} className={`${open && 'ml-3'} text-white text-5xl font-thin sm:hidden block`}>
               <RiArrowDownSLine />
             </div>
             <div className='flex flex-col justify-between items-center pt-4 h-[85vh]'>
