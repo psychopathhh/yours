@@ -11,12 +11,12 @@ const App = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="flex md:flex-row flex-col">
+    <div className={`flex md:flex-row flex-col ${open && 'overflow-hidden'}`}>
       <Sidebar />
       <div className="flex-1 flex flex-col bg-[#1b262c]">
         <div className="px-6 h-[100vh] overflow-y-scroll hide-scrollbar">
           <Searchbar />
-          <div className='mt-[20px]'>
+          <div className='mt-[20px] sm:mb-12'>
             <Routes>
               <Route path="/genre-songs:genreId" element={<GenreSongs />} />
               <Route path="/top-artists" element={<TopArtists />} />
