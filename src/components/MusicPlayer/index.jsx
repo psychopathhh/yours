@@ -14,14 +14,18 @@ const MusicPlayer = ({ open, setOpen }) => {
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
   const [appTime, setAppTime] = useState(0);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(0.3);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (currentSongs.length) dispatch(playPause(false))
-  }, [dispatch]);
+    if (currentSongs.length) {
+      dispatch(playPause(true))
+      dispatch(playPause(false))
+      dispatch(playPause(true))
+    }
+  }, [currentIndex]);
 
   const handlePlayPause = () => {
     if (!isActive) return;
@@ -34,7 +38,7 @@ const MusicPlayer = ({ open, setOpen }) => {
   };
 
   const handleNextSong = () => {
-    dispatch(playPause(true));
+    dispatch(playPause(false));
 
     if (!shuffle) {
       dispatch(nextSong((currentIndex + 1) % currentSongs.length));
@@ -44,6 +48,7 @@ const MusicPlayer = ({ open, setOpen }) => {
   };
 
   const handlePrevSong = () => {
+    dispatch(playPause(false));
     if (currentIndex === 0) {
       dispatch(prevSong(currentSongs.length - 1));
     } else if (shuffle) {
@@ -78,17 +83,6 @@ const MusicPlayer = ({ open, setOpen }) => {
             onInput={(event) => setSeekTime(event.target.value)}
             setSeekTime={setSeekTime}
             appTime={appTime}
-          />
-          <Player
-            activeSong={activeSong}
-            volume={volume}
-            isPlaying={isPlaying}
-            seekTime={seekTime}
-            repeat={repeat}
-            currentIndex={currentIndex}
-            onEnded={handleNextSong}
-            onTimeUpdate={(event) => setAppTime(event.target.currentTime)}
-            onLoadedData={(event) => setDuration(event.target.duration)}
           />
         </div>
         <VolumeBar value={volume} min="0" max="1" onChange={(event) => setVolume(event.target.value)} setVolume={setVolume} />
@@ -136,6 +130,17 @@ const MusicPlayer = ({ open, setOpen }) => {
 
         </>
       }
+      <Player
+        activeSong={activeSong}
+        volume={volume}
+        isPlaying={isPlaying}
+        seekTime={seekTime}
+        repeat={repeat}
+        currentIndex={currentIndex}
+        onEnded={handleNextSong}
+        onTimeUpdate={(event) => setAppTime(event.target.currentTime)}
+        onLoadedData={(event) => setDuration(event.target.duration)}
+      />
     </>
   );
 };

@@ -8,9 +8,6 @@ import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 
-
-
-
 import 'swiper/css'
 import 'swiper/css/free-mode'
 
