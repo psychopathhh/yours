@@ -14,7 +14,7 @@ const App = () => {
     <div className={`flex md:flex-row flex-col ${open && 'overflow-hidden'}`}>
       <Sidebar />
       <div className="flex-1 flex flex-col bg-[#1b262c]">
-        <div className="px-6 h-[100vh] overflow-y-scroll hide-scrollbar">
+        <div className={`px-6 h-[100vh] overflow-y-scroll hide-scrollbar  ${open ? 'overflow-hidden invisible' : 'visible'}`}>
           <Searchbar />
           <div className='mt-[20px] mb-12 sm:mb-0'>
             <Routes>
