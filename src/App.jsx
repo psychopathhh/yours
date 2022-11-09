@@ -37,7 +37,7 @@ const App = () => {
       </div>
 
       {activeSong?.title && (
-        <div className={`absolute ${open ? `overflow-hidden h-[100%] flex-col animate-slideup rounded-3xl` : 'sm:h-32 h-24 animate-slowfade rounded-t-3xl'} bg-[#293942] bottom-[-10px] sm:bottom-0 left-0 right-0 flex z-40`}>
+        <div className={`overflow-hidden absolute ${open ? `h-[100%] flex-col animate-slideup rounded-3xl` : 'sm:h-32 h-24 animate-slowfade rounded-t-3xl'} bg-[#293942] bottom-[-10px] sm:bottom-0 left-0 right-0 flex z-40`}>
           <MusicPlayer open={open} setOpen={setOpen} />
           <div className={`absolute right-8 top-3 text-white text-[38px] sm:hidden ${open ? 'hidden' : 'block'}`} onClick={() => window.innerWidth < 640 && setOpen(true)}>
             <RiArrowUpSLine />
