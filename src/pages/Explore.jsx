@@ -12,7 +12,7 @@ const Explore = () => {
     const dispatch = useDispatch()
     return (
         <div className='xl:flex gap-20'>
-            <div className='flex flex-1 h-fit flex-col xl:pb-[150px] pb-5'>
+            <div className='flex flex-1 h-fit flex-col xl:pb-[180px] pb-5'>
                 <div className='w-full flex flex-col justify-between items-center mt-4 mb-10'>
                     <h2 className='font-bold text-3xl text-white mb-10 text-left'>Главное</h2>
                     <div className='flex flex-wrap justify-evenly gap-8 text-white text-3xl'>
@@ -34,7 +34,7 @@ const Explore = () => {
                     </div>
                 </div>
             </div >
-            <div className="xl:sticky relative flex flex-1 top-0 h-fit pb-[150px]">
+            <div className="xl:sticky relative flex flex-1 top-0 h-fit pb-[180px]">
                 <TopPlay />
             </div>
         </div>

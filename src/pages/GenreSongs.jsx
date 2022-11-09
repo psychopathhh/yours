@@ -23,7 +23,7 @@ const GenreSongs = () => {
     return (<>
         <BackBtn url='/explore' />
         <h2 className='font-bold text-3xl text-white my-5 text-center'>{genreTitle}</h2>
-        <div className='flex flex-wrap sm:justify-evenly justify-center gap-10 pb-[150px]'>
+        <div className='flex flex-wrap sm:justify-evenly justify-center gap-10 pb-[180px]'>
             {data?.map((song, i) =>
 
             ((song.hasOwnProperty('images') && song.hub.hasOwnProperty('actions')) && <SongCard

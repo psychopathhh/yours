@@ -28,7 +28,7 @@ const CountryTracks = () => {
             <h2 className='mt-4 mb-10 font-bold text-3xl text-white text-left sm:text-center'>
                 Популярно в <span className='font-black'>{country}</span>
             </h2>
-            <div className='flex justify-center flex-wrap gap-8 pb-[150px]'>
+            <div className='flex justify-center flex-wrap gap-8 pb-[180px]'>
                 {data?.map((song, i) => (
                     (song.hasOwnProperty('images') && song.hub.hasOwnProperty('actions')) &&
                     <SongCard

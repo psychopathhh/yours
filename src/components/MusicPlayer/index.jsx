@@ -92,7 +92,7 @@ const MusicPlayer = ({ open, setOpen }) => {
           <div style={{ 'backgroundImage': `url(${activeSong?.images?.coverart})` }} className='absolute top-0 left-0 z-0 h-[100%] w-[100%] bg-no-repeat bg-cover bg-right-bottom blur-3xl rounded-t-3xl brightness-50' />
 
 
-          <div className={`${open ? 'pt-5 pb-20' : 'my-20'} z-50 flex align-center flex-col justify-between`}>
+          <div className={`${open ? 'pt-5 pb-28' : 'my-20'} z-50 flex align-center flex-col justify-between`}>
             <div onClick={() => window.innerWidth < 640 && setOpen(false)} className={`${open && 'ml-3'} text-white text-5xl font-thin sm:hidden block`}>
               <RiArrowDownSLine />
             </div>

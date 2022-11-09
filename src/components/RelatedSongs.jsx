@@ -10,7 +10,7 @@ const RelatedSongs = ({
 }) => {
   let realIndex = 0
   return (
-    <div className="flex flex-col pb-[150px]">
+    <div className="flex flex-col pb-[180px]">
       {artistId ?
         <h1 className="font-bold text-3xl text-white">Песни:</h1> :
 
