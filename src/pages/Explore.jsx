@@ -34,7 +34,7 @@ const Explore = () => {
                     </div>
                 </div>
             </div >
-            <div className="xl:sticky relative flex flex-1 top-0 h-fit pb-[180px]">
+            <div className="xl:sticky relative flex flex-1 top-0 h-fit pb-[150px]">
                 <TopPlay />
             </div>
         </div>

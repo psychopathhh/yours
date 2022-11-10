@@ -11,10 +11,10 @@ const App = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className={`flex md:flex-row flex-col overflow-hidden`}>
+    <div className={`flex md:flex-row flex-col ${open && 'overflow-hidden'}`}>
       <Sidebar />
       <div className="flex-1 flex flex-col bg-[#1b262c]">
-        <div className={`px-6 h-[calc(100vh-2rem)] sm:h-[100vh] overflow-y-scroll hide-scrollbar  ${open ? 'overflow-hidden invisible' : 'visible'}`}>
+        <div className={`px-6 h-[calc(100vh-62px)] sm:h-[100vh] overflow-y-scroll hide-scrollbar  ${open ? 'overflow-hidden invisible' : 'visible'}`}>
           <Searchbar />
           <div className='mt-[20px] mb-12 sm:mb-0'>
             <Routes>
