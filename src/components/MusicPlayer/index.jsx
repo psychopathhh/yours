@@ -7,14 +7,14 @@ import Controls from './Controls';
 import Player from './Player';
 import Seekbar from './Seekbar';
 import Track from './Track';
-import VolumeBar from './VolumeBar';
+// import VolumeBar from './VolumeBar';
 
 const MusicPlayer = ({ open, setOpen }) => {
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } = useSelector((state) => state.player);
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
   const [appTime, setAppTime] = useState(0);
-  const [volume, setVolume] = useState(0.1);
+  // const [volume, setVolume] = useState(0.1);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const dispatch = useDispatch();
@@ -85,7 +85,7 @@ const MusicPlayer = ({ open, setOpen }) => {
             appTime={appTime}
           />
         </div>
-        <VolumeBar value={volume} min="0" max="1" onChange={(event) => setVolume(event.target.value)} setVolume={setVolume} />
+        {/* <VolumeBar value={volume} min="0" max="1" onChange={(event) => setVolume(event.target.value)} setVolume={setVolume} /> */}
       </div>
       {open &&
         <>
@@ -132,7 +132,7 @@ const MusicPlayer = ({ open, setOpen }) => {
       }
       <Player
         activeSong={activeSong}
-        volume={volume}
+        // volume={volume}
         isPlaying={isPlaying}
         seekTime={seekTime}
         repeat={repeat}

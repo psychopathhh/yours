@@ -16,7 +16,7 @@ const Track = ({ isPlaying, isActive, activeSong, open, handlePlayPause }) => {
         )}
         <div className='sm:block sm:h-5 sm:w-5 hidden rounded-full bg-[#25343c] absolute top-[34%] left-[36%]'></div>
       </div>
-      <div className={` ${open ? 'w-[310px] overflow-hidden' : 'w-[180px] sm:w-[320px] 2xl:w-[580px]'} ${open && isPlaying ? 'mt-3' : 'p-3'}`}>
+      <div className={` ${open ? 'w-[310px] overflow-hidden' : 'w-[180px] sm:w-[320px] lg:w-[500px]'} ${open && isPlaying ? 'mt-3' : 'p-3'}`}>
         {
           (open && isPlaying) ?
             (

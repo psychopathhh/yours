@@ -14,7 +14,7 @@ const Seekbar = ({ value, min, max, onInput, open }) => {
         min={min}
         max={max}
         onInput={onInput}
-        className={`${open ? 'w-[300px]' : 'min-w-[180px]'} md:block  md:w-[300px] 2xl:w-[600px] h-1 mx-4 2xl:mx-6 rounded-lg accent-indigo-500 drop-shadow-xl`}
+        className={`${open ? 'w-[300px]' : 'min-w-[180px]'} md:block  md:w-[320px] lg:w-[400px] xl:w-[600px] h-1 mx-4 2xl:mx-6 rounded-lg accent-indigo-500 drop-shadow-xl cursor-pointer`}
       />
       <p className="text-gray-300 absolute top-2 right-4 drop-shadow-md">{max === 0 ? '0:00' : getTime(max)}</p>
     </div>
