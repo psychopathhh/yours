@@ -74,18 +74,19 @@ const TopPlay = () => {
           </Link>
         </div>
         <div className="mt-4 flex flex-col gap-1">
-          {topPlays?.map((song, i) => (
-            (song.hasOwnProperty('images') && song.hub.hasOwnProperty('actions')) &&
-            (<TopChartCard
-              key={song.key}
-              song={song}
-              i={i}
-              isPlaying={isPlaying}
-              activeSong={activeSong}
-              handlePauseClick={handlePauseClick}
-              handlePlayClick={() => handlePlayClick(song, i)}
-            />)
-          ))}
+          {topPlays?.map((song, i) => {
+            if (song.hasOwnProperty('images') && song.hub.hasOwnProperty('actions')) {
+              return (<TopChartCard
+                key={song.key}
+                song={song}
+                i={i}
+                isPlaying={isPlaying}
+                activeSong={activeSong}
+                handlePauseClick={handlePauseClick}
+                handlePlayClick={() => handlePlayClick(song, i)}
+              />)
+            }
+          })}
         </div>
       </div>
 
@@ -110,20 +111,25 @@ const TopPlay = () => {
           modules={[FreeMode]}
           className="mt-4"
         >
-          {topPlays?.map((song, i) => (
-            <SwiperSlide
-              key={song?.key}
-              style={{ width: '25%', height: 'auto' }}
-              className="shadow-lg rounded-full animate-slideright"
-            >
-              <Link to={`/artists/${song?.artists[0].adamid}`}>
-                <img src={song?.images.background} alt="name"
-                  className="rounded-full w-full object-contain"
-                />
-              </Link>
+          {topPlays?.map((song, i) => {
+            if (song.hasOwnProperty('artists')) {
+              return (
+                <SwiperSlide
+                  key={song?.key}
+                  style={{ width: '25%', height: 'auto' }}
+                  className="shadow-lg rounded-full animate-slideright"
+                >
+                  <Link to={`/artists/${song?.artists[0].adamid}`}>
+                    <img src={song?.images.background} alt="name"
+                      className="rounded-full w-full object-contain"
+                    />
+                  </Link>
 
-            </SwiperSlide>
-          ))}
+                </SwiperSlide>
+              )
+            }
+          }
+          )}
 
         </Swiper>
       </div>

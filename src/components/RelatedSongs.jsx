@@ -12,7 +12,7 @@ const RelatedSongs = ({
   return (
     <div className="flex flex-col pb-[150px]">
       {artistId ?
-        <h1 className="font-bold text-3xl text-white">Песни:</h1> :
+        <h1 className="font-bold text-3xl text-white">Songs:</h1> :
 
         <h1 className="font-bold text-3xl text-white">Вам также понравится:</h1>}
       <div className="my-6 w-full flex flex-col">

@@ -9,15 +9,15 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
     <div className="flex-1 flex flex-row justify-between items-center">
       <img
         className="w-20 h-20 rounded-lg"
-        src={artistId ? song?.attributes?.artwork?.url.replace('{w}', '125').replace('{h}', '125') : song?.images?.coverart}
-        alt={song?.title}
+        src={artistId ? song?.attributes?.artwork?.url : song?.images?.coverart}
+        alt={song?.attributes?.name}
       />
       <div className="flex-1 flex flex-col justify-center mx-3">
         {!artistId ? (
-          <Link to={`/songs/${song.key}`}>
+          <Link to={`/songs/${song.id}`}>
             <p>
               <span className="text-xl font-bold text-white hover:text-gray-400 transition-colors">
-                {song?.title}
+                {song?.attributes?.name}
               </span>
             </p>
           </Link>
@@ -29,19 +29,17 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
           </p>
         )}
         {artistId ?
-          (<span className="text-base text-gray-300 mt-1">
+          (<><span className="text-base text-gray-300 my-1">
             {song?.attributes?.albumName}
-          </span>) :
+          </span>
+            <span className="text-sm text-gray-500">Release Date: {song?.attributes?.releaseDate}</span>
+          </>) :
           (<Link to={`/artists/${song?.artists[0]?.adamid}`} >
             <p className="text-base text-gray-300 mt-1 hover:text-gray-400 transition-colors">
               {song?.subtitle}
             </p>
           </Link>)
         }
-        <p>
-
-
-        </p>
       </div>
     </div>
     {!artistId
