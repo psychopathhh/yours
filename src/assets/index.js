@@ -13,6 +13,7 @@ import reggae from './reggae.jpg'
 import rock from './rock.jpg'
 import soul from './soul.webp'
 import worldwide from './worldwide.jpg'
+import snow from './snow.gif'
 
 export {
   loader,
@@ -30,4 +31,5 @@ export {
   rock,
   soul,
   worldwide,
+  snow
 };

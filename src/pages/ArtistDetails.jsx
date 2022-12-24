@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { BackBtn, DetailsHeader, Error, Loader, RelatedSongs } from "../components";
+import { BackBtn, DetailsHeader, Error, Loader, RelatedSongs, Translator } from "../components";
 
 
 const ArtistDetails = () => {
@@ -40,13 +40,16 @@ const ArtistDetails = () => {
           (<p className="text-xl py-3 text-gray-200">The country: {artistData?.attributes?.origin}</p>)
         }
         {artistData?.attributes?.artistBio &&
-          (<><div className="relative sm:hidden">
-            <img className="opacity-40 w-[100%] mx-auto" src={artistData?.attributes?.editorialArtwork?.centeredFullscreenBackground?.url} alt="" />
-            <h2 className="absolute top-[calc(50%-15px)] left-[calc(50%-15px)] font-bold sm:text-3xl text-xl text-white">About</h2>
-          </div>
-            <h2 className="hidden sm:block font-bold sm:text-3xl text-xl text-white">About</h2>
-            <p dangerouslySetInnerHTML={{ __html: artistData?.attributes?.artistBio }} className="text-base text-[#dcdcdc] py-3" />
-          </>)
+          (<div className="py-7 flex sm:flex-row flex-col justify-between gap-20">
+            <div className="flex-1"><div className="relative sm:hidden">
+              <img className="opacity-40 w-[100%] mx-auto" src={artistData?.attributes?.editorialArtwork?.centeredFullscreenBackground?.url} alt="" />
+              <h2 className="absolute top-[calc(50%-15px)] left-[calc(50%-15px)] font-bold sm:text-3xl text-xl text-white">About</h2>
+            </div>
+              <h2 className="hidden sm:block font-bold sm:text-3xl text-xl text-white">About</h2>
+              <p dangerouslySetInnerHTML={{ __html: artistData?.attributes?.artistBio }} className="text-base text-[#dcdcdc] py-3" /></div>
+            <div className="flex-1"><Translator /></div>
+
+          </div>)
         }
         <RelatedSongs
           data={artistData?.views?.['top-songs']?.data}
