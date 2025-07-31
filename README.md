@@ -1,1 +1,1 @@
-## Презентация сайта: <video src='video-presentation.MP4' width=180/>
+## Презентация сайта в файле video-presentation.MP4
